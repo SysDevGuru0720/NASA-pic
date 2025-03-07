@@ -3,6 +3,7 @@ package cache
 import (
 	"log"
 
+	"github.com/go-redis/redis/v8"
 	"github.com/gomodule/redigo/redis"
 )
 
@@ -45,4 +46,13 @@ func GetConn() (redis.Conn, error) {
 	}
 
 	return conn, nil
+}
+
+func Set(c redis.Conn, key string, value string) error {
+	_, err := c.Do("SET", key, value)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
