@@ -56,3 +56,12 @@ func Set(c redis.Conn, key string, value string) error {
 
 	return nil
 }
+
+func Get(c redis.Conn, key string) (string, error) {
+	s, err := redis.String(c.Do("GET", key))
+	if err != nil {
+		return "", err
+	}
+
+	return s, nil
+}
