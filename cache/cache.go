@@ -36,3 +36,13 @@ func ping(c redis.Conn) error {
 
 	return nil
 }
+
+func GetConn() (redis.Conn, error) {
+	conn := pool.Get()
+	err := ping(conn)
+	if err != nil {
+		return nil, err
+	}
+
+	return conn, nil
+}
