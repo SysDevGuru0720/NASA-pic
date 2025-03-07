@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/gomodule/redigo/redis"
-	"google.golang.org/genproto/googleapis/cloud/redis/v1"
 )
 
 var (
@@ -27,4 +26,13 @@ func newPool() *redis.Pool {
 			return c, err
 		},
 	}
+}
+
+func ping(c redis.Conn) error {
+	_, err := redis.String(c.Do("PING"))
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
