@@ -3,7 +3,6 @@ package cache
 import (
 	"log"
 
-	"github.com/go-redis/redis/v8"
 	"github.com/gomodule/redigo/redis"
 )
 
