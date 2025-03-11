@@ -1,0 +1,17 @@
+version: '1'
+
+services:
+
+  nasapic:
+    image: golang:latest
+    volumes:
+      - ./NASA-PIC:/NASA-PIC
+    working_dir: /NASA-PIC
+    environment:
+      - NASA_API_KEY=RhTN8L6c61HO2zgRrJUeQyoNp8gchVoZMN2MiSz6
+    ports:
+      - 8080:8080
+    command: bash -c "cd /NASA-PIC && go BUILD main.go && ./NASA-PIC"
+
+  redis:
+    image: redis:alpine
