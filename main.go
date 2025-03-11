@@ -8,6 +8,7 @@ import (
 	"github.com/SysDevGuru0720/NASA-pic/controller"
 	"github.com/SysDevGuru0720/NASA-pic/model"
 	"github.com/SysDevGuru0720/NASA-pic/util"
+
 	"github.com/kataras/iris/v12"
 )
 
@@ -28,7 +29,7 @@ func main() {
 	app := iris.New()
 	app.HandleDir("/", "./assets", iris.DirOptions{
 		IndexName: "/index.html",
-		Gzip:      false,
+		Compress:  false,
 		ShowList:  false,
 	})
 
