@@ -19,7 +19,7 @@ func ShowPic(ctx iris.Context) {
 		date := time.Now()
 		dateStr = date.Format("2006-01-02")
 	} else {
-		date, err := time.Parse("2006-01-02".dateParam)
+		date, err := time.Parse("2006-01-02", dateParam)
 		if err != nil {
 			log.Printf("unipic: time converting error: %v\n", err)
 			ctx.StatusCode(iris.StatusInternalServerError)
